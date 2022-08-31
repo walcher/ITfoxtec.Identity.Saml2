@@ -204,7 +204,8 @@ namespace ITfoxtec.Identity.Saml2.Schemas.Metadata
 
             EntityId = entityDescriptorElement.Attributes[Saml2MetadataConstants.Message.EntityId].GetValueOrNull<string>();
 
-            Id = entityDescriptorElement.Attributes[Saml2MetadataConstants.Message.Id].GetValueOrNull<Saml2Id>();
+            //Avoid validating Saml2Id on tableau, they don't use the standard.
+            //Id = entityDescriptorElement.Attributes[Saml2MetadataConstants.Message.Id].GetValueOrNull<Saml2Id>();
 
             var spSsoDescriptorElement = entityDescriptorElement[Saml2MetadataConstants.Message.SPSsoDescriptor, Saml2MetadataConstants.MetadataNamespace.OriginalString];
             if (spSsoDescriptorElement != null)
